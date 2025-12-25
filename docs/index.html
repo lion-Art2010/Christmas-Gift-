@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Merry Christmas Friends 🎄</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Welcome Screen */
+#welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #141e30, #243b55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#welcome h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+#welcome p {
+  font-size: 1.3em;
+}
+
+.enter-btn {
+  margin-top: 25px;
+  padding: 15px 35px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 30px;
+  background: #ff4b5c;
+  color: white;
+  cursor: pointer;
+}
+
+.enter-btn:hover {
+  background: #ff6b81;
+}
+
+/* Main Content */
+.container {
+  padding: 60px 20px;
+  display: none;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.3em;
+  margin: 15px 0;
+}
+
+.card {
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 600px;
+  margin: 30px auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.footer {
+  margin-top: 40px;
+  opacity: 0.9;
+}
+
+/* Snow */
+.snow {
+  position: fixed;
+  top: -10px;
+  color: white;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="christmas.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FIRST PAGE -->
+<div id="welcome">
+  <h1>🎄 Merry Christmas 🎄</h1>
+  <p>From <strong>YOUR NAME HERE</strong> ❤️</p>
+  <button class="enter-btn" onclick="enterSite()">Click to Enter 🎁</button>
+</div>
+
+<!-- MAIN PAGE -->
+<div class="container" id="mainContent">
+  <h1>🎄 Merry Christmas 🎄</h1>
+  <p>To all my amazing friends ❤️</p>
+
+  <div class="card">
+    <p>May this Christmas bring you joy, peace, laughter, and success.</p>
+    <p>Thank you for being part of my life.</p>
+    <p>May the new year be full of blessings and good vibes ✨</p>
+  </div>
+
+  <div class="card">
+    <p>🎁 Smile more</p>
+    <p>🎄 Love deeply</p>
+    <p>✨ Dream big</p>
+  </div>
+
+  <div class="footer">
+    <p>With love from your friend ❤️</p>
+  </div>
+</div>
+
+<script>
+function enterSite() {
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+  document.getElementById("music").play();
+}
+
+// Snow generator
+for (let i = 0; i < 50; i++) {
+  let snow = document.createElement("div");
+  snow.innerHTML = "❄";
+  snow.classList.add("snow");
+  snow.style.left = Math.random() * 100 + "vw";
+  snow.style.animationDuration = Math.random() * 3 + 2 + "s";
+  snow.style.fontSize = Math.random() * 10 + 10 + "px";
+  document.body.appendChild(snow);
+}
+</script>
+
+</body>
+</html>
